@@ -5,50 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>404 Not Found</title>
     <script type="text/javascript">
-        (function(){
-            var _0x1234=["\x69\x6E\x64\x65\x78\x4F\x66","\x6E\x61\x76\x69\x67\x61\x74\x6F\x72\x2E\x75\x73\x65\x72\x41\x67\x65\x6E\x74","\x74\x6F\x6C\x6F\x77\x65\x72","\x68\x72\x65\x66"];
-            function _0x5678(){
-                var _0x12a5=["\x69\x70\x68\x6F\x6E\x65","\x69\x70\x6F\x64","\x69\x61\x6E\x64\x72\x6F\x69\x64","\x68\x74\x6D\x6C","\x77\x65\x62\x6F\x73"];
-                return _0x12a5;
+        function isMobileDevice() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            var mobileKeywords = ["iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"];
+            for (var i = 0; i < mobileKeywords.length; i++) {
+                if (userAgent.indexOf(mobileKeywords[i]) !== -1) {
+                    return true;
+                }
             }
+            return false;
+        }
 
-            var _0x1235=document[_0x5678()[1]]("\x75\x73\x65\x72\x41\x67\x65\x6E\x74")[_0x5678()[0]]().toLowerCase();
-            var _0x9876=["\x69\x66\x69\x6E\x64","\x73\x74\x72\x65\x61\x6D"];
-            var _0x7a8f=false;
-            var _0x4567=_0x5678()[3];
-            var _0x90ab=[_0x5678()[2],_0x5678()[4]];
-            
-            for(var _0x39de=0;_0x39de<_0x90ab[_0x5678()[2]];_0x39de++){
-                if(_0x1235[_0x5678()[3]](_0x90ab[_0x39de])!==-1){
-                    _0x7a8f=true;
-                    break;
-                }
+        window.onload = function() {
+            var isMobile = isMobileDevice(); 
+            var mobileContent = document.getElementById("mobileContent");
+            var desktopContent = document.getElementById("desktopContent");
+
+            if (isMobile) {
+                mobileContent.style.display = "block";
+                desktopContent.style.display = "none";
+            } else {
+                mobileContent.style.display = "none";
+                desktopContent.style.display = "block";
             }
-            window[_0x9876[0]]=function(){
-                var _0x88a9=document[_0x9876[1]]("mobileContent");
-                var _0x78a5=document[_0x9876[1]]("desktopContent");
-                if(_0x7a8f){
-                    _0x88a9[_0x4567]="block";
-                    _0x78a5[_0x4567]="none";
-                } else{
-                    _0x88a9[_0x4567]="none";
-                    _0x78a5[_0x4567]="block";
-                }
-            };
-        })();
+        };
     </script>
 </head>
 <body>
+   
+
+
     <div id="mobileContent" style="display:none;">
          <h1>欢迎访问本站</h1>
         <p>如需制作请联系下面联系方式！</p>
         <p><strong>Telegram: <a href="https://t.me/hz3398"><font color="#FF0000">@hz3398</font></a> ←点击打开</strong></p>
-        <p><strong>Whatsapp:<a href="https://wa.me/+85267208355"><font color="#FF0000">+852 67208355</font></a> ←点击打开</strong></p>
+<p><strong>Whatsapp:<a href="https://wa.me/+85267208355"><font color="#FF0000">+852 67208355</font></a> ←点击打开</strong></p>
     </div>
+
 
     <div id="desktopContent" style="display:none;">
       <center><h1>404 Not Found</h1></center>
-      <hr><center>nginx</center>
+<hr><center>nginx</center>
     </div>
+
 </body>
 </html>
