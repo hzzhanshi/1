@@ -3,31 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>根据 ID 跳转</title>
+    <title>根据设备类型显示内容</title>
     <script type="text/javascript">
-        // 获取 URL 参数中的值
-        function getUrlParameter(name) {
-            var url = window.location.search;
-            var regex = new RegExp("[?&]" + name + "=([^&]*)", "i");
-            var results = regex.exec(url);
-            if (results === null) {
-                return null;
-            } else {
-                return decodeURIComponent(results[1]);
+        // 判断是否为手机端
+        function isMobileDevice() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            var mobileKeywords = ["iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"];
+            for (var i = 0; i < mobileKeywords.length; i++) {
+                if (userAgent.indexOf(mobileKeywords[i]) !== -1) {
+                    return true;
+                }
             }
+            return false;
         }
 
         window.onload = function() {
-            var id = getUrlParameter("id"); // 获取 URL 中的 id 参数
-            if (id === "1") {  // 如果 id=1
-                // 跳转到指定的链接
-                window.location.href = "https://t.me/zhixiangtg";  // 示例跳转链接
+            var isMobile = isMobileDevice();  // 判断是否为手机端
+            var mobileContent = document.getElementById("mobileContent");
+            var desktopContent = document.getElementById("desktopContent");
+
+            if (isMobile) {
+                // 如果是手机端，显示手机端内容
+                mobileContent.style.display = "block";
+                desktopContent.style.display = "none";
+            } else {
+                // 如果是桌面端，显示桌面端内容
+                mobileContent.style.display = "none";
+                desktopContent.style.display = "block";
             }
         };
     </script>
 </head>
 <body>
-    <h1>欢迎访问</h1>
-    <p>如果传入了 id=1 参数，页面将自动跳转。</p>
+    <h1>欢迎访问本站</h1>
+
+    <!-- 手机端显示的内容 -->
+    <div id="mobileContent" style="display:none;">
+        <p>手机端访问！欢迎您的到来！</p>
+    </div>
+
+    <!-- 桌面端显示的内容 -->
+    <div id="desktopContent" style="display:none;">
+        <p>谢谢小星星</p>
+    </div>
+
 </body>
 </html>
