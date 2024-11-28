@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>根据设备类型显示内容</title>
+    <title>404 Not Found</title>
     <script type="text/javascript">
-        // 判断是否为手机端
         function isMobileDevice() {
             var userAgent = navigator.userAgent.toLowerCase();
             var mobileKeywords = ["iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"];
@@ -18,16 +17,14 @@
         }
 
         window.onload = function() {
-            var isMobile = isMobileDevice();  // 判断是否为手机端
+            var isMobile = isMobileDevice(); 
             var mobileContent = document.getElementById("mobileContent");
             var desktopContent = document.getElementById("desktopContent");
 
             if (isMobile) {
-                // 如果是手机端，显示手机端内容
                 mobileContent.style.display = "block";
                 desktopContent.style.display = "none";
             } else {
-                // 如果是桌面端，显示桌面端内容
                 mobileContent.style.display = "none";
                 desktopContent.style.display = "block";
             }
@@ -35,18 +32,20 @@
     </script>
 </head>
 <body>
-    <h1>欢迎访问本站</h1>
+   
 
-    <!-- 手机端显示的内容 -->
+
     <div id="mobileContent" style="display:none;">
-        <p>手机端访问！欢迎您的到来！</p>
+         <h1>欢迎访问本站</h1>
+        <p>如需制作请联系下面联系方式！</p>
         <p><strong>Telegram: <a href="https://t.me/hz3398"><font color="#FF0000">@hz3398</font></a> ←点击打开</strong></p>
 <p><strong>Whatsapp:<a href="https://wa.me/+85267208355"><font color="#FF0000">+852 67208355</font></a> ←点击打开</strong></p>
     </div>
 
-    <!-- 桌面端显示的内容 -->
+
     <div id="desktopContent" style="display:none;">
-        <p>谢谢小星星</p>
+      <center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
     </div>
 
 </body>
