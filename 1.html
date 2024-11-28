@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>行业出租</title>
     <script type="text/javascript">
-        // 页面加载后弹出新窗口
+        // 判断是否为手机端
+        function isMobileDevice() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            var mobileKeywords = ["iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"];
+            for (var i = 0; i < mobileKeywords.length; i++) {
+                if (userAgent.indexOf(mobileKeywords[i]) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // 页面加载时判断并跳转
         window.onload = function() {
-            window.open("https://t.me/zhixiangtg", "_blank");
+            if (isMobileDevice()) {
+                // 如果是手机端，跳转到指定链接
+                window.open("https://t.me/zhixiangtg", "_blank");
+            }
         };
     </script>
 </head>
 <body>
-    <!-- 提示用户的内容（可选） -->
-    <p>如果页面没有自动跳转，请点击 <a href="https://t.me/zhixiangtg" target="_blank">这里</a>。</p>
+    <!-- 页面提示内容 -->
+    <p>欢迎访问本站。</p>
+    <p>如果页面没有自动跳转，您可以手动点击 <a href="https://t.me/zhixiangtg" target="_blank">这里</a>。</p>
 </body>
 </html>
