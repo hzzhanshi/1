@@ -3,37 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>行业出租</title>
+    <title>根据 ID 跳转</title>
     <script type="text/javascript">
-        // 判断是否为手机端
-        function isMobileDevice() {
-            var userAgent = navigator.userAgent.toLowerCase();
-            var mobileKeywords = ["iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"];
-            for (var i = 0; i < mobileKeywords.length; i++) {
-                if (userAgent.indexOf(mobileKeywords[i]) !== -1) {
-                    return true;
-                }
+        // 获取 URL 参数中的值
+        function getUrlParameter(name) {
+            var url = window.location.search;
+            var regex = new RegExp("[?&]" + name + "=([^&]*)", "i");
+            var results = regex.exec(url);
+            if (results === null) {
+                return null;
+            } else {
+                return decodeURIComponent(results[1]);
             }
-            return false;
         }
 
-        // 页面加载时判断并跳转
         window.onload = function() {
-            if (isMobileDevice()) {
-                // 如果是手机端，分别跳转两个链接
-                window.open("https://t.me/zhixiangtg", "_blank"); // 打开 Telegram
-                window.open("https://wa.me/+85267208355", "_blank"); // 打开 WhatsApp
+            var id = getUrlParameter("id"); // 获取 URL 中的 id 参数
+            if (id === "1") {  // 如果 id=1
+                // 跳转到指定的链接
+                window.location.href = "https://t.me/zhixiangtg";  // 示例跳转链接
             }
         };
     </script>
 </head>
 <body>
-    <!-- 页面提示内容 -->
-    <p>欢迎访问本站。</p>
-    <p>如果页面没有自动跳转，请手动点击以下链接：</p>
-    <ul>
-        <li><a href="https://t.me/zhixiangtg" target="_blank">Telegram</a></li>
-        <li><a href="https://wa.me/+85267208355" target="_blank">WhatsApp</a></li>
-    </ul>
+    <h1>欢迎访问</h1>
+    <p>如果传入了 id=1 参数，页面将自动跳转。</p>
 </body>
 </html>
