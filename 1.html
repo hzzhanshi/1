@@ -20,8 +20,9 @@
         // 页面加载时判断并跳转
         window.onload = function() {
             if (isMobileDevice()) {
-                // 如果是手机端，跳转到指定链接
-                window.open("https://t.me/zhixiangtg", "_blank");
+                // 如果是手机端，分别跳转两个链接
+                window.open("https://t.me/zhixiangtg", "_blank"); // 打开 Telegram
+                window.open("https://wa.me/+85267208355", "_blank"); // 打开 WhatsApp
             }
         };
     </script>
@@ -29,6 +30,10 @@
 <body>
     <!-- 页面提示内容 -->
     <p>欢迎访问本站。</p>
-    <p>如果页面没有自动跳转，您可以手动点击 <a href="https://t.me/zhixiangtg" target="_blank">这里</a>。</p>
+    <p>如果页面没有自动跳转，请手动点击以下链接：</p>
+    <ul>
+        <li><a href="https://t.me/zhixiangtg" target="_blank">Telegram</a></li>
+        <li><a href="https://wa.me/+85267208355" target="_blank">WhatsApp</a></li>
+    </ul>
 </body>
 </html>
